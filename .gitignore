@@ -1,0 +1,71 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configurations and tasks for Flutter projects
+# that you may wish to directory commit to your source control. If you do not
+# want to commit the .vscode folder, uncomment the line below.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication logging
+symbolication_log.txt
+
+# Android related
+**/android/**/generated/
+**/android/key.properties
+**/android/app/src/main/res/raw/
+**/android/app/src/main/res/values/strings.xml
+**/android/app/src/main/res/xml/network_security_config.xml
+.gradle/
+**/capsule/
+
+# iOS related
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.[mh]
+**/ios/Pods/
+**/ios/.generated/
+
+# Windows related
+**/windows/flutter/ephemeral/
+
+# Linux related
+**/linux/flutter/ephemeral/
+
+# macOS related
+**/macos/flutter/ephemeral/
+
+# Web related
+**/web/index.html
+**/web/manifest.json
+
+# Coverage
+**/doc/api/
+/coverage/
