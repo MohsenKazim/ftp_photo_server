@@ -14,13 +14,13 @@ workflows:
         script: |
           # هذا السكربت هو السر لتجاوز طلب الحساب المدفوع
           cd ios
-          sed -i '' 's/DEVELOPMENT_TEAM = [A-Z0-9]*;//g' Runner.xcodeproj/project.pbxproj
+          sed -i '' 's/DEVELOPMENT_TEAM = [^;]*;/DEVELOPMENT_TEAM = "";/g' Runner.xcodeproj/project.pbxproj
           sed -i '' 's/ProvisioningStyle = Automatic;/ProvisioningStyle = Manual;/g' Runner.xcodeproj/project.pbxproj
           echo "CODE_SIGNING_ALLOWED=NO" >> Flutter/Generated.xcconfig
           echo "CODE_SIGNING_REQUIRED=NO" >> Flutter/Generated.xcconfig
       - name: Flutter build iOS (No Sign)
         script: |
-          flutter build ios --debug --no-codesign
+          flutter build ios --release --no-codesign --build-number=1 --build-name=1.0.0
     artifacts:
       - build/ios/iphoneos/*.app
     publishing:
