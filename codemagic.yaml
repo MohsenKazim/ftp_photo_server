@@ -1,0 +1,29 @@
+workflows:
+  ios-debug-unsigned:
+    name: iOS Debug Unsigned Build
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      flutter: stable
+      xcode: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Bypass Xcode Signing Requirement
+        script: |
+          # هذا السكربت هو السر لتجاوز طلب الحساب المدفوع
+          cd ios
+          sed -i '' 's/DEVELOPMENT_TEAM = [A-Z0-9]*;//g' Runner.xcodeproj/project.pbxproj
+          sed -i '' 's/ProvisioningStyle = Automatic;/ProvisioningStyle = Manual;/g' Runner.xcodeproj/project.pbxproj
+          echo "CODE_SIGNING_ALLOWED=NO" >> Flutter/Generated.xcconfig
+          echo "CODE_SIGNING_REQUIRED=NO" >> Flutter/Generated.xcconfig
+      - name: Flutter build iOS (No Sign)
+        script: |
+          flutter build ios --debug --no-codesign --xcargs 'CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""'
+    artifacts:
+      - build/ios/iphoneos/*.app
+    publishing:
+      email:
+        recipients:
+          - mohsen.kahdim@gmail.com # يرجى تحديث البريد هنا إذا كان مختلفاً
