@@ -20,7 +20,7 @@ workflows:
           echo "CODE_SIGNING_REQUIRED=NO" >> Flutter/Generated.xcconfig
       - name: Flutter build iOS (No Sign)
         script: |
-          flutter build ios --debug --no-codesign --xcargs 'CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""'
+          flutter build ios --debug --no-codesign
     artifacts:
       - build/ios/iphoneos/*.app
     publishing:
