@@ -1,6 +1,8 @@
 # ftp_photo_server
 
-A new Flutter project.
+**Developer:** MOHSIN KAHDIM
+
+A Flutter application to receive photos via FTP and save them to the Camera Roll.
 
 ## Getting Started
 
