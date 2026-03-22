@@ -26,4 +26,4 @@ workflows:
     publishing:
       email:
         recipients:
-          - mohsen.kahdim@gmail.com # يرجى تحديث البريد هنا إذا كان مختلفاً
+          - mohsen.raq.m@gmail.com
